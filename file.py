@@ -2,8 +2,12 @@ import shutil
 import os
 
 #preliminary check to see if the path exists within the file system
-def checkFile():
-    pass
+def checkPath(string):
+    while True:
+        path = str(input(string))
+        if os.path.exists(path):
+            return path
+        print('Error: That path does not exist')
 
 def moveFile(sourcePath, destinationPath):
     if sourcePath == destinationPath:
@@ -14,11 +18,11 @@ def moveFile(sourcePath, destinationPath):
         print(f'File has been moved to {destinationPath}')
         return
 
-def addFile(sourcePath, destinationPath):
+def addFile(destinationPath):
     pass
 
-def deleteFile(sourcePath, destinationPath):
-    pass
+def deleteFile(destinationPath):
+    os.remove(destinationPath)
 
 def copyFile(sourcePath, destinationPath):
     pass
@@ -27,7 +31,7 @@ def promptUser():
     print('Welcome to the File Manager')
     print()
     print('1. Move File')
-    print('2. Add File')
+    print('2. Add File (Only text files)')
     print('3. Delete File')
     print('4. Copy File')
     print('5. Find File')
